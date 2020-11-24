@@ -1,0 +1,49 @@
+.logoImg{
+    max-height: 150px;
+}
+
+.headButton{
+    background-color: rgb(218, 98, 30);
+    color: white;
+    font-size: 14px;
+    margin-top: 44px;
+}
+
+.subs{
+    /* background-color: #ededf4; */
+    /* max-height: 200px; */
+    max-width: 100%;
+    padding-top: 50px;
+    padding-bottom: 10px;
+}
+
+
+.na{
+    padding-left: 10px;
+}
+.f{
+    font-family: poppins;
+    font-size: 18px;
+}
+
+.footer{
+    margin-top: 150px;
+}
+
+thead{
+    padding-top: 30px;
+}
+
+/* tr{
+    border: 2px solid rgb(105, 102, 102);
+} */
+
+table{
+    border-radius: 25px;
+    box-shadow:  8px 8px 10px #89898ac4;
+}
+
+td{
+    margin: 6px 6px 6px 6px;
+}
+

@@ -1,0 +1,83 @@
+.title{
+    color: black;
+    
+    font-size: 26px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.name{
+    border-radius: 15px;
+    width: 604px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: poppins;
+    box-shadow: 0px 3px 12px rgb(148, 144, 144);
+    border: transparent;
+    height: 50px;
+
+}
+
+.company{
+    border-radius: 15px;
+    width: 604px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: poppins;
+    box-shadow: 0px 3px 12px rgb(148, 144, 144);
+    border: transparent;
+    height: 50px;
+}
+
+.e{
+    border-radius: 15px;
+    width: 604px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: poppins;
+    box-shadow: 0px 3px 12px rgb(148, 144, 144);
+    border: transparent;
+    height: 50px;
+
+}
+
+.add{
+    border-radius: 15px;
+    width: 604px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: poppins;
+    box-shadow: 0px 3px 12px rgb(148, 144, 144);
+    border: transparent;
+    height: 50px;
+}
+
+
+.form{
+    margin-top: 30px;
+}
+
+
+.ckb{
+    /* margin-left: auto;
+    margin-right: auto; */
+    background-color: rgb(218, 98, 30);
+    box-shadow: 0px 8px 10px #213f9ac4;
+    color: white;
+    font-family: poppins;
+    border-radius: 20px;
+}
+
+
+.f{
+    font-family: poppins;
+    font-size: 18px;
+}
+
+.footer{
+    margin-top: 50px;
+}
+
+
+
+
