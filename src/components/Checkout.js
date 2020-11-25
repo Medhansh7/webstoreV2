@@ -17,52 +17,58 @@ export default function Checkout() {
     let [name, setName] = useState("")
     let [mail, setMail] = useState("")
     let [country, setCountry] = useState("")
-    let [de, setDe] = useState(false)
+    let [de, setDe] = useState(true)
 
-    let [payment, setPayment] = useState(false)
+    let [payment, setPayment] = useState(true)
 
-    const cli = () => {
-        document.getElementById("test").click()
+    const test = () => {
+        if (company !== "" && name !== "" && mail !== "" && country !== "") {
+            setPayment(false)
+        }
+        if (mail == "something@oracle.com" || country == "aus" || country == "usa" || company == "oracle") {
+            setDe(false)
+        }
+
     }
-
 
 
     const handleToggle = () => {
         console.log(company, mail, country)
         if (mail == "something@oracle.com" || country == "aus" || country == "usa" || company == "oracle") {
+
             history.push('/error')
         }
-        if (mail == "") {
-            alert("Input a valid email")
+        // if (mail == "") {
+        //     alert("Input a valid email")
 
-        }
-        if (country == "") {
-            alert("Input a valid country")
+        // }
+        // if (country == "") {
+        //     alert("Input a valid country")
 
-        }
+        // }
 
-        if (company == "") {
-            alert("Input a valid company name")
+        // if (company == "") {
+        //     alert("Input a valid company name")
 
-        }
-        else {
-            setPayment(true)
-        }
+        // }
+        // else {
+        //     setPayment(true)
+        // }
     }
 
 
     const onToken = (token) => {
-        if (payment) {
 
-            fetch('/save-stripe-token', {
-                method: 'POST',
-                body: JSON.stringify(token),
-            }).then(response => {
-                response.json().then(data => {
-                    alert(`We are in business, ${data.email}`);
-                });
+        fetch('/save-stripe-token', {
+            method: 'POST',
+            body: JSON.stringify(token),
+        }).then(response => {
+            response.json().then(data => {
+                alert(`We are in business, ${data.email}`);
             });
-        }
+        });
+
+
 
     }
 
@@ -70,7 +76,7 @@ export default function Checkout() {
 
     return (
         <div>
-            {console.log(location)}
+            {/* {console.log(location)} */}
 
             < div className="row" >
                 <div className="col-md-2">
@@ -90,39 +96,43 @@ export default function Checkout() {
                         <div className="form">
                             <div className="form-group">
                                 <input type="text" onChange={(e) => {
-                                    { setName(e.target.value) }
-                                }} className="name" placeholder="Name" required />
+                                    { setName(e.target.value) } test()
+                                }} className="name" placeholder="Name" required="true" />
                             </div>
                             <div className="form-group">
                                 <input type="text" className="company" onChange={(e) => {
-                                    { setCompany(e.target.value) }
+                                    { setCompany(e.target.value) } test()
                                 }} placeholder="Company Name" required />
                             </div>
                             <div className="form-group">
                                 <input type="email" className="e" onChange={(e) => {
-                                    { setMail(e.target.value) }
+                                    { setMail(e.target.value) } test()
                                 }} placeholder="Company Email" required />
                             </div>
                             <div className="form-group">
                                 <input type="text" className="add" onChange={(e) => {
-                                    { setCountry(e.target.value) }
+                                    { setCountry(e.target.value) } test()
                                 }} placeholder="Country" required />
                             </div>
                         </div>
                         <br /><br />
+                        {de ?
 
+                            <StripeCheckout
 
-                        <StripeCheckout
+                                amount={price * 100}
+                                currency="USD"
+                                email={mail}
+                                id="stripee"
+                                token={onToken}
+                                stripeKey="pk_live_lYuLQiMujE3M52na5lbVSeUL00763VynEH"
 
-                            amount={price * 100}
-                            currency="USD"
-                            email={mail}
-                            id="stripee"
-                            token={onToken}
-                            stripeKey="pk_live_lYuLQiMujE3M52na5lbVSeUL00763VynEH"
+                            >
+                                <button className="btn btn-success" disabled={payment} onClick={handleToggle}> Next</button></StripeCheckout>
+                            : <button className="btn btn-success" disabled={payment} onClick={handleToggle}> Next</button>
 
-                        >
-                            <button className="btn btn-success" onClick={handleToggle}> Next</button></StripeCheckout>
+                        }
+
                     </div>
                     <div className="col-md-2"></div>
                 </div>
