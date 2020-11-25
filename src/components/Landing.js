@@ -14,49 +14,49 @@ export default function Landing() {
     const [newPrice, setPrice] = useState("Select a subscription type")
 
 
-    const [basicPrice, setBasicPrice] = useState({ value: "$0" })
+    const [basicPrice, setBasicPrice] = useState({ value: 0 })
     const [monthPriceList, setMonthPriceList] = useState({ value: "Select a subscription type", label: 'Select a subscription type' })
 
-    const [standardPrice, setStandardPrice] = useState({ value: "$0" })
+    const [standardPrice, setStandardPrice] = useState({ value: 0 })
     const [monthSPriceList, setMonthSPriceList] = useState({ value: "Select a subscription type", label: 'Select a subscription type' })
 
-    const [premiumPrice, setPremiumPrice] = useState({ value: "$0" })
+    const [premiumPrice, setPremiumPrice] = useState({ value: 0 })
     const [monthPPriceList, setMonthPPriceList] = useState({ value: "Select a subscription type", label: 'Select a subscription type' })
 
     let price = {
         basicMonthly: [
-            { value: '$0', label: 'Select Country', isDisabled: true },
-            { value: '$100', label: 'India' },
-            { value: '$300', label: 'South East Asia' },
-            { value: '$600', label: 'Singapore' }],
+            { value: 0, label: 'Select Country', isDisabled: true },
+            { value: 100, label: 'India' },
+            { value: 300, label: 'South East Asia' },
+            { value: 600, label: 'Singapore' }],
 
         basicYearly: [
-            { value: '$0', label: 'Select Country', isDisabled: true },
-            { value: '$80', label: 'India' },
-            { value: '$700', label: 'South East Asia' },
-            { value: '$500', label: 'Singapore' }],
+            { value: 0, label: 'Select Country', isDisabled: true },
+            { value: 80, label: 'India' },
+            { value: 700, label: 'South East Asia' },
+            { value: 500, label: 'Singapore' }],
 
         standardMonthly: [
-            { value: '$0', label: 'Select Country', isDisabled: true },
-            { value: '$120', label: 'India' },
-            { value: '$350', label: 'South East Asia' },
-            { value: '$680', label: 'Singapore' }],
+            { value: 0, label: 'Select Country', isDisabled: true },
+            { value: 120, label: 'India' },
+            { value: 350, label: 'South East Asia' },
+            { value: 680, label: 'Singapore' }],
         standardYearly: [
-            { value: '$0', label: 'Select Country', isDisabled: true },
-            { value: '$110', label: 'India' },
-            { value: '$330', label: 'South East Asia' },
-            { value: '$660', label: 'Singapore' }],
+            { value: 0, label: 'Select Country', isDisabled: true },
+            { value: 110, label: 'India' },
+            { value: 330, label: 'South East Asia' },
+            { value: 660, label: 'Singapore' }],
 
         premiumMonthly: [
-            { value: '$0', label: 'Select Country', isDisabled: true },
-            { value: '$150', label: 'India' },
-            { value: '400', label: 'South East Asia' },
-            { value: '$720', label: 'Singapore' }],
+            { value: 0, label: 'Select Country', isDisabled: true },
+            { value: 150, label: 'India' },
+            { value: 400, label: 'South East Asia' },
+            { value: 720, label: 'Singapore' }],
         premiumYearly: [
-            { value: '$0', label: 'Select Country', isDisabled: true },
-            { value: '$140', label: 'India' },
-            { value: '$380', label: 'South East Asia' },
-            { value: '$700', label: 'Singapore' }],
+            { value: 0, label: 'Select Country', isDisabled: true },
+            { value: 140, label: 'India' },
+            { value: 380, label: 'South East Asia' },
+            { value: 700, label: 'Singapore' }],
 
         basic: {
 
@@ -95,7 +95,7 @@ export default function Landing() {
     const setMonthPrice = () => {
         // let p = price.monthly.map(e => e.general)
 
-        if (basicPrice.value !== "$0") {
+        if (basicPrice.value !== 0) {
             const newValue = basicPrice.label;
             price.basicMonthly.map(e => {
                 if (e.label === newValue) {
@@ -104,7 +104,7 @@ export default function Landing() {
             })
         }
 
-        if (standardPrice.value !== "$0") {
+        if (standardPrice.value !== 0) {
             const newValue = standardPrice.label;
             price.standardMonthly.map(e => {
                 if (e.label === newValue) {
@@ -113,7 +113,7 @@ export default function Landing() {
             })
         }
 
-        if (premiumPrice.value !== "$0") {
+        if (premiumPrice.value !== 0) {
             const newValue = premiumPrice.label;
             price.premiumMonthly.map(e => {
                 if (e.label === newValue) {
@@ -135,7 +135,7 @@ export default function Landing() {
 
     const setYearPrice = () => {
         // let p = price.yearly.map(e => e.general)
-        if (basicPrice.value !== "$0") {
+        if (basicPrice.value !== 0) {
             const newValue = basicPrice.label;
             price.basicYearly.map(e => {
                 if (e.label === newValue) {
@@ -144,7 +144,7 @@ export default function Landing() {
             })
         }
 
-        if (standardPrice.value !== "$0") {
+        if (standardPrice.value !== 0) {
             const newValue = standardPrice.label;
             price.standardYearly.map(e => {
                 if (e.label === newValue) {
@@ -153,7 +153,7 @@ export default function Landing() {
             })
         }
 
-        if (premiumPrice.value !== "$0") {
+        if (premiumPrice.value !== 0) {
             const newValue = premiumPrice.label;
             price.premiumYearly.map(e => {
                 if (e.label === newValue) {
@@ -247,7 +247,7 @@ export default function Landing() {
                             <tr>
                                 <th className="text-center">Features</th>
                                 <th className="text-center"><h3>GEN Ray Explorer</h3><br /> <h5>Basic</h5> <div> <h6>{basicPrice.label}</h6></div>
-                                    <div> <h5>{basicPrice.value}/month</h5></div>
+                                    <div> <h5> ${basicPrice.value}/month</h5></div>
                                     <Select
                                         value={monthPriceList}
                                         onChange={handleMonthChange}
@@ -255,7 +255,7 @@ export default function Landing() {
                                     />
                                 </th>
                                 <th className="text-center"><h3>GEN Ray Explorer</h3><br /> <h5>Standard</h5> <div> <h6>{standardPrice.label}</h6></div>
-                                    <div> <h5>{standardPrice.value}/month</h5></div>
+                                    <div> <h5>${standardPrice.value}/month</h5></div>
                                     <Select
                                         value={monthSPriceList}
                                         onChange={handleSMonthChange}
@@ -264,7 +264,7 @@ export default function Landing() {
 
                                 </th>
                                 <th className="text-center"><h3>GEN Ray Explorer</h3><br /> <h5>Premium</h5> <div> <h6>{premiumPrice.label}</h6></div>
-                                    <div> <h5>{premiumPrice.value}/month</h5></div>
+                                    <div> <h5>${premiumPrice.value}/month</h5></div>
                                     <Select
                                         value={monthPPriceList}
                                         onChange={handlePMonthChange}
@@ -329,20 +329,20 @@ export default function Landing() {
                                 <td>
                                     <div className="row">
                                         <div className="col-md-12 text-center">
-                                            <Link to="/checkout" className="btn btn-success ">Buy Now</Link>
+                                            <Link to={{ pathname: '/checkout', state: basicPrice, }} className="btn btn-success ">Buy Now</Link>
                                         </div>
                                     </div></td>
                                 <td>
                                     <div className="row">
 
                                         <div className="col-md-12 text-center">
-                                            <Link to="/checkout" className="btn btn-success ">Buy Now</Link>
+                                            <Link to={{ pathname: '/checkout', state: standardPrice }} className="btn btn-success ">Buy Now</Link>
                                         </div>
                                     </div></td>
                                 <td>
                                     <div className="row ">
                                         <div className="col-md-12 text-center">
-                                            <Link to="/checkout" className="btn btn-success ">Buy Now</Link>
+                                            <Link to={{ pathname: '/checkout', state: premiumPrice }} className="btn btn-success ">Buy Now</Link>
                                         </div>
                                         {/* <a href=""></a> */}
                                     </div></td>
